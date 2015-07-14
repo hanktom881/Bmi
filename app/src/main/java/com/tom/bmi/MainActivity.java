@@ -1,5 +1,6 @@
 package com.tom.bmi;
 
+import android.app.AlertDialog;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -24,6 +25,11 @@ public class MainActivity extends ActionBarActivity {
         float height = Float.parseFloat(edHeight.getText().toString());
         float bmi = weight/(height*height);
         Toast.makeText(this, String.valueOf(bmi), Toast.LENGTH_LONG).show();
+        new AlertDialog.Builder(this)
+                .setTitle("BMI")
+                .setMessage("±zªºBMI­È¬°"+bmi)
+                .setPositiveButton("OK", null)
+                .show();
     }
 
     @Override
