@@ -1,6 +1,7 @@
 package com.tom.bmi;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -25,9 +26,20 @@ public class MainActivity extends ActionBarActivity {
         float height = Float.parseFloat(edHeight.getText().toString());
         float bmi = weight/(height*height);
         Toast.makeText(this, String.valueOf(bmi), Toast.LENGTH_LONG).show();
+//        showBmiByAlertDialog(bmi);
+        Intent intent = new Intent(this, ResultActivity.class);
+//        intent.putExtra("BMI_EXTRA", bmi);
+        Bundle bag = new Bundle();
+        bag.putFloat("BMI_EXTRA", bmi);
+        bag.putString("TEST_EXTRA", "Testing");
+        intent.putExtras(bag);
+        startActivity(intent);
+    }
+
+    private void showBmiByAlertDialog(float bmi) {
         new AlertDialog.Builder(this)
                 .setTitle("BMI")
-                .setMessage("±zªºBMI­È¬°"+bmi)
+                .setMessage("æ‚¨çš„BMIå€¼ç‚º"+bmi)
                 .setPositiveButton("OK", null)
                 .show();
     }
