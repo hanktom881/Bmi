@@ -16,6 +16,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Toast.makeText(this, "onCreate", Toast.LENGTH_LONG).show();
         setContentView(R.layout.activity_main);
     }
 
@@ -30,8 +31,8 @@ public class MainActivity extends ActionBarActivity {
         Intent intent = new Intent(this, ResultActivity.class);
 //        intent.putExtra("BMI_EXTRA", bmi);
         Bundle bag = new Bundle();
-        bag.putFloat("BMI_EXTRA", bmi);
-        bag.putString("TEST_EXTRA", "Testing");
+        bag.putFloat(getString(R.string.bmi_extra), bmi);
+        bag.putString(getString(R.string.test_extra), "Testing");
         intent.putExtras(bag);
         startActivity(intent);
     }
@@ -64,5 +65,41 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Toast.makeText(this, "onStop", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Toast.makeText(this, "onDestroy", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Toast.makeText(this, "onPause", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Toast.makeText(this, "onResume", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Toast.makeText(this, "onStart", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Toast.makeText(this, "onRestart", Toast.LENGTH_LONG).show();
     }
 }

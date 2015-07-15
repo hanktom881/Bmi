@@ -21,6 +21,7 @@ public class ResultActivity extends ActionBarActivity {
 //        float bmi = intent.getFloatExtra("BMI_EXTRA", 0);
         TextView result = (TextView) findViewById(R.id.result);
         result.setText("您的BMI值為"+bmi);
+
     }
 
     @Override
